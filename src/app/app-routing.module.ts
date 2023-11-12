@@ -1,10 +1,27 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import {Routes,RouterModule} from "@angular/router";
+import { PortafolioComponent } from './pages/portafolio/portafolio.component';
+import { AbautComponent } from "./pages/abaut/abaut.component";
+import { ItemComponent } from './pages/item/item.component';
+const app_routes:Routes=[
+    {path: 'home',component:PortafolioComponent},
+    {path: 'abaut',component:AbautComponent},
+    {path: 'item',component:ItemComponent},
+    {path: '**',pathMatch:'full',redirectTo:'home'}
 
-const routes: Routes = [];
+];
+
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+      RouterModule.forRoot(app_routes,{ useHash:true})
+
+  ],
+  exports: [
+      RouterModule
+  ]
+
+
 })
-export class AppRoutingModule { }
+export class AppRoutingModule{
+}
